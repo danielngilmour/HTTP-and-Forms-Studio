@@ -6,19 +6,22 @@
 		// TODO: create a handler
     window.addEventListener("load", function(){
 		function setSearchEngine() {
+			let actions = {
+				Google: "https://www.google.com/",
+				DuckDuckGo: "https://duckduckgo.com/",
+				Bing: "https://www.bing.com/search",
+				Ask: "https://www.ask.com/web"
+			};
+
 			console.log("setSearchEngine")
-			event.preventDefault()
-			console.log(document.querySelector("input[name=engine]:checked").value)
+			chosenEngine = document.querySelector("input[name=engine]:checked").value
+			console.log(chosenEngine)
+			document.querySelector("form").setAttribute("action", actions[chosenEngine])
+			console.log(document.querySelector("form"))
 		}
 		
 		searchForm.addEventListener("submit", setSearchEngine);
-
-		let actions = {
-   			"google": "https://www.google.com/",
-			"DuckDuckGo": "https://duckduckgo.com/",
-			"Bing": "https://www.bing.com/search",
-			"Ask": "https://www.ask.com/web"
-		};
+		
 	});
 	</script>
 </head>
@@ -28,16 +31,16 @@
 	<form id="searchForm">
 		<input type="text" name="q">
 		<label>Google
-			<input type="radio" name="engine" value="google"/>
+			<input type="radio" name="engine" value="Google"/>
 		</label>
 		<label>DuckDuckGo
-			<input type="radio" name="engine" value="duckDuckGo"/>
+			<input type="radio" name="engine" value="DuckDuckGo"/>
 		</label>
 		<label>Bing
-			<input type="radio" name="engine" value="bing"/>
+			<input type="radio" name="engine" value="Bing"/>
 		</label>
 		<label>Ask
-			<input type="radio" name="engine" value="ask"/>
+			<input type="radio" name="engine" value="Ask"/>
 		</label>
 		<button id="submitButton">Submit</button>
 	</form>
