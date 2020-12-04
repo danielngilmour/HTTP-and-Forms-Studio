@@ -1,6 +1,7 @@
 <!doctype html>
 
 <head>
+	<link rel="stylesheet" href="/styles.css">
 	<meta charset="utf-8">
 	<script>
 		// TODO: create a handler
@@ -13,11 +14,8 @@
 				Ask: "https://www.ask.com/web"
 			};
 
-			console.log("setSearchEngine")
 			chosenEngine = document.querySelector("input[name=engine]:checked").value
-			console.log(chosenEngine)
 			document.querySelector("form").setAttribute("action", actions[chosenEngine])
-			console.log(document.querySelector("form"))
 		}
 		
 		searchForm.addEventListener("submit", setSearchEngine);
